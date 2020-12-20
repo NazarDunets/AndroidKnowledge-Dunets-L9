@@ -14,10 +14,10 @@
 
     <TextView
         android:id="@+id/result_text"
-        android:text="@string/placeholder_text"
+        tools:text="@string/placeholder_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="36sp"
+        android:textSize="24sp"
         android:textColor="@color/blacky"/>
 
 

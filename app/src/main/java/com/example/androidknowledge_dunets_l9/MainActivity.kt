@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         launchButton = findViewById(R.id.launch_button)
 
         launchButton.setOnClickListener {
-            it.isEnabled = false
             val serviceIntent = Intent(this, ArithmeticService::class.java)
             startService(serviceIntent)
         }
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.main_container, StartingFragment.newInstance(serviceResult))
+                .replace(R.id.top_container, StartingFragment.newInstance(serviceResult))
                 .commit()
         }
     }
