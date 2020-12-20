@@ -25,7 +25,7 @@ class ArithmeticService : Service() {
 
     private fun calculateAndBroadcast() {
 
-        val valueToSend = nextInt(25) * nextInt(25)
+        val valueToSend = nextInt(1, 26) * nextInt(1, 25)
 
         Intent().also { intent ->
             intent.action = "com.example.androidknowledge_dunets_l9.broadcast.NUMBER"
