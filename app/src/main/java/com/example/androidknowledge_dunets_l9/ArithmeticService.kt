@@ -1,11 +1,9 @@
 package com.example.androidknowledge_dunets_l9
 
 import android.app.Service
-import android.content.BroadcastReceiver
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
-import android.util.Log
 import kotlin.random.Random.Default.nextInt
 
 class ArithmeticService : Service() {
@@ -17,7 +15,6 @@ class ArithmeticService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-
         calculateAndBroadcast()
         stopSelf()
         return super.onStartCommand(intent, flags, startId)
@@ -28,14 +25,14 @@ class ArithmeticService : Service() {
         val valueToSend = nextInt(1, 26) * nextInt(1, 25)
 
         Intent().also { intent ->
-            intent.action = "com.example.androidknowledge_dunets_l9.broadcast.NUMBER"
+            intent.action = SERVICE_ACTION
             intent.putExtra("result", valueToSend)
             sendBroadcast(intent)
         }
     }
 }
 
-class MyBinder(val servc: ArithmeticService): Binder() {
+class MyBinder(val servc: ArithmeticService) : Binder() {
     fun getService(): ArithmeticService {
         return servc
     }
